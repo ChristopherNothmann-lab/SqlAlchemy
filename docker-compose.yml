@@ -1,0 +1,21 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  python:
+    build: sql-alchemy/
+    container_name: ctn-python-app
+    # ports:
+    #   - "5000:5000"
+  mysql:
+    build: sql-alchemy/data/
+    container_name: ctn-mysql-db
+    ports:
+      - "65238:3306"
+    # command: sh -c "./execute-sql.sh"
+
+
+# Web service (named python and mysql)
+# The web service uses an image that’s built from the Dockerfile in the current directory.
+
+  # redis:
+  #   image: "redis:alpine"
+  # sample of public image
